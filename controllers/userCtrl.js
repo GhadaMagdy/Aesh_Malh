@@ -32,7 +32,29 @@ function Add(req, res) {
         .catch(_err => res.status(500).send())
 }
 function GetById(req, res) {
-    user.findById(req.params.id).then(_result => res.json("data is : " + _result))
+    user.findById(req.params.id)
+    .populate({
+            path: 'recipes',
+            select: 'name -_id'
+        })
+        .populate({
+            path: 'fevRecipes',
+            select: 'name -_id'
+        })
+        .populate({
+            path: 'shoppingList',
+            select: 'name -_id'
+        })
+        .populate({
+            path: 'enrolledCourse.course',
+            select: '-_id',
+        })
+        .populate({
+            path: 'enrolledCourse.visitedSections',
+            select: '-_id',
+        })
+        .populate('badges.badgeid')
+        .then(_result => res.json("data is : " + _result))
         .catch(_err => res.status(500).send())
 }
 
