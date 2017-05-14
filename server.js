@@ -1,7 +1,9 @@
 var mongoose = require('mongoose');
 var tagModel = require('./collections/tag');
 var recipeModel = require ('./collections/recipe');
-var recipeModel = require ('./collections/review');
+var reviewModel = require ('./collections/review');
+var reviewTypeModel = require ('./collections/reviewType');
+var sectionModel = require ('./collections/section');
 var projectRoutes = require('./routes');
 var express = require('express');
 var bodyParser = require('body-parser');
