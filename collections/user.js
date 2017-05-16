@@ -14,8 +14,10 @@ var userSchema = new Schema({
     recipes: [{ type: Schema.Types.ObjectId, ref: "recipe" }],
     fevRecipes: [{ type: Schema.Types.ObjectId, ref: "recipe" }],
     shoppingList: [{ type: Schema.Types.ObjectId, ref: "ingredient" }],
-    enrolledCourse: [{course: { type: Schema.Types.ObjectId, ref: "course" },
-    visitedSections:  [{type:Schema.Types.ObjectId, ref:"section" }]}],
+    enrolledCourse: [{
+        course: { type: Schema.Types.ObjectId, ref: "course" },
+        visitedSections:  [{type:Schema.Types.ObjectId, ref:"section" }]
+    }],
     badges: [{
         badgeid: { type: Schema.Types.ObjectId, ref: "badge" }, 
         date: { type: String },
